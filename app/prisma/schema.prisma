@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id          String @id @default(uuid())
+  email       String @unique
+  createdAt   DateTime @default(now())
+  sessions    Session[]
+  bodyweight  Bodyweight[]
+  height      Int?
+}
+
+model Session {
+  id          String @id @default(uuid())
+  userId      String
+  tokenHash   String @unique
+  expires     DateTime
+
+  user        User @relation(fields: [userId], references: [id])
+}
+
+model Bodyweight {
+  id          String @id @default(uuid())
+  userId      String
+  value       Float
+  day         String
+
+  user        User @relation(fields: [userId], references: [id])
+  @@unique([userId, day])
+}
+
+model Workout {
+  id          String @id @default(uuid())
+  userId      String
+  date        DateTime
+  sets        Set[]
+}
+
+model Set {
+  id          String @id @default(uuid())
+  workoutId   String
+  exerciseId  String
+  weight      Float
+  reps        Int
+  rir         Int?
+  
+  workout     Workout @relation(fields: [workoutId], references: [id])
+  exercise    Exercise @relation(fields: [exerciseId], references: [id])
+}
+
+model Exercise {
+  id          String @id @default(uuid())
+  name        String
+  createdBy   String?
+  sets        Set[]
+}
+
