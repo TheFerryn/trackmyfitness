@@ -12,6 +12,7 @@ model User {
   email       String @unique
   createdAt   DateTime @default(now())
   sessions    Session[]
+  initialized Boolean @default(false)
   bodyweight  Bodyweight[]
   height      Int?
 }
