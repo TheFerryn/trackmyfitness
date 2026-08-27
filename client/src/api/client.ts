@@ -2,7 +2,7 @@ import { handleApiError } from "@/api/errors";
 import { ApiError } from "@/utils/types";
 import type { ApiRequestOptions } from "@/utils/types";
 
-const API_URL = "http://localhost:3000"; // ENV später
+const API_URL = "https://legendary-space-zebra-rwpwq497xr42xp99-3000.app.github.dev"; // ENV später
 
 function buildUrl(path: string, query?: ApiRequestOptions["query"]) {
     const url = new URL(path, API_URL);
