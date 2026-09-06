@@ -8,7 +8,7 @@ async function bootstrap() {
     app.useGlobalPipes(new ValidationPipe());
     app.use(cookieParser());
     app.enableCors({
-        origin: 'https://legendary-space-zebra-rwpwq497xr42xp99-5173.app.github.dev', // ÄNDERN,
+        origin: process.env.CLIENT_ORIGIN ?? 'http://localhost:5173',
         credentials: true,
     });
 

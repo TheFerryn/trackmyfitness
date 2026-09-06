@@ -8,6 +8,7 @@ generated/
 
 .env
 .env.*
+!.env.example
 
 *.log
 npm-debug.log*

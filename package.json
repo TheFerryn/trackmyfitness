@@ -1,0 +1,13 @@
+{
+    "name": "trackmyfitness",
+    "private": true,
+    "packageManager": "pnpm@10.0.0",
+    "scripts": {
+        "dev:api": "pnpm --filter api start:dev",
+        "dev:client": "pnpm --filter client dev",
+        "format": "prettier --write \"**/*.{ts,tsx,md,json}\""
+    },
+    "devDependencies": {
+        "prettier": "^3.6.2"
+    }
+}

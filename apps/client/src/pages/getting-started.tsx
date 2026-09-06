@@ -28,7 +28,8 @@ import {
   IconScaleOutline,
   IconArrowAutofitHeight,
   IconBarbellFilled,
-  IconFlameFilled
+  IconFlameFilled,
+  IconTargetArrow,
 } from "@tabler/icons-react";
 import { GETTING_STARTED_STEPS } from "@/utils/types";
 import type { GettingStartedData, GettingStartedStep } from "@/utils/types";
@@ -95,7 +96,7 @@ function AgeSelect({ age, setAge }) {
     <>
       <CardHeader>
         <CardTitle className="text-3xl font-semibold">
-          What's your age?
+          📆 What's your age?
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -134,44 +135,40 @@ function BodyInfoSelect({ height, setHeight, weight, setWeight }) {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 gap-6 py-2">
-  <div className="space-y-3">
-    <span className="flex items-center gap-2 text-xl font-medium opacity-60">
-      <IconArrowAutofitHeight />
-      Your height
-    </span>
+          <div className="space-y-3">
+            <span className="flex items-center gap-2 text-xl font-medium opacity-60">
+              <IconArrowAutofitHeight />
+              Your height
+            </span>
 
-    <div className="flex items-center gap-2">
-      <Input
-        type="number"
-        min={130}
-        max={220}
-        className="w-18 h-10 text-center !text-xl font-bold"
-        placeholder="180"
-      />
-      <span className="text-xl">
-        cm
-      </span>
-    </div>
-  </div>
-    
-  <div className="space-y-3">
-    <h2 className="flex items-center gap-2 text-xl font-medium opacity-60">
-      <IconScaleOutline />
-      Current bodyweight
-    </h2>
+            <div className="flex items-center gap-2">
+              <Input
+                type="number"
+                min={130}
+                max={220}
+                className="w-18 h-10 text-center !text-xl font-bold"
+                placeholder="180"
+              />
+              <span className="text-xl">cm</span>
+            </div>
+          </div>
 
-    <div className="flex items-center gap-2">
-      <Input
-        type="number"
-        className="w-18 h-10 text-center !text-xl font-bold"
-        placeholder="75"
-      />
-      <span className="text-xl">
-        kg
-      </span>
-    </div>
-  </div>
-</div>
+          <div className="space-y-3">
+            <h2 className="flex items-center gap-2 text-xl font-medium opacity-60">
+              <IconScaleOutline />
+              Current bodyweight
+            </h2>
+
+            <div className="flex items-center gap-2">
+              <Input
+                type="number"
+                className="w-18 h-10 text-center !text-xl font-bold"
+                placeholder="75"
+              />
+              <span className="text-xl">kg</span>
+            </div>
+          </div>
+        </div>
       </CardContent>
     </>
   );
@@ -182,50 +179,67 @@ function GoalSelect({ goal, setGoal }) {
     <>
       <CardHeader>
         <CardTitle className="text-3xl font-semibold">
-          What is your goal?
+          🎯 What is your goal?
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="w-full max-w-md">
-    <FieldGroup>
-      <FieldSet>
-        <RadioGroup defaultValue="kubernetes">
-          <FieldLabel className="bg-background" htmlFor="bulk">
-            <Field orientation="horizontal">
-              <FieldContent>
-                <FieldTitle>
-                  <IconBarbellFilled stroke={3} />
-                  <span className="!text-xl font-bold">Gain muscle mass</span>
-                  </FieldTitle>
-              </FieldContent>
-              <RadioGroupItem id="bulk" value="bulk" />
-            </Field>
-          </FieldLabel>
-          <FieldLabel className="bg-background" htmlFor="maintain">
-            <Field orientation="horizontal">
-              <FieldContent>
-                <FieldTitle>
-                  <span className="!text-xl font-bold">Maintain form</span>
-                </FieldTitle>
-              </FieldContent>
-              <RadioGroupItem id="maintain" value="maintain" />
-            </Field>
-          </FieldLabel>
-          <FieldLabel className="bg-background" htmlFor="cut">
-            <Field orientation="horizontal">
-              <FieldContent>
-                <FieldTitle>
-                  <IconFlameFilled stroke={3} />
-                  <span className="!text-xl font-bold">Loose bodyfat</span>
-                </FieldTitle>
-              </FieldContent>
-              <RadioGroupItem id="cut" value="cut" />
-            </Field>
-          </FieldLabel>
-        </RadioGroup>
-      </FieldSet>
-    </FieldGroup>
-  </div>
+          <FieldGroup>
+            <FieldSet>
+              <RadioGroup defaultValue="kubernetes">
+                <FieldLabel className="bg-background" htmlFor="bulk">
+                  <Field orientation="horizontal">
+                    <FieldContent>
+                      <FieldTitle>
+                        <IconBarbellFilled stroke={3} />
+                        <span className="!text-xl font-semibold">
+                          Gain muscle mass
+                        </span>
+                      </FieldTitle>
+                      <FieldDescription className="text-lg">
+                        You want to get bigger, stronger and progress your
+                        workouts
+                      </FieldDescription>
+                    </FieldContent>
+                    <RadioGroupItem id="bulk" value="bulk" />
+                  </Field>
+                </FieldLabel>
+                <FieldLabel className="bg-background" htmlFor="maintain">
+                  <Field orientation="horizontal">
+                    <FieldContent>
+                      <FieldTitle>
+                        <IconTargetArrow stroke={2} />
+                        <span className="!text-xl font-semibold">
+                          Maintain form
+                        </span>
+                      </FieldTitle>
+                      <FieldDescription className="text-lg">
+                        Keep your current bodyweight and strength
+                      </FieldDescription>
+                    </FieldContent>
+                    <RadioGroupItem id="maintain" value="maintain" />
+                  </Field>
+                </FieldLabel>
+                <FieldLabel className="bg-background" htmlFor="cut">
+                  <Field orientation="horizontal">
+                    <FieldContent>
+                      <FieldTitle>
+                        <IconFlameFilled stroke={3} />
+                        <span className="!text-xl font-semibold">
+                          Loose bodyfat
+                        </span>
+                      </FieldTitle>
+                      <FieldDescription className="text-lg">
+                        Get leaner by minimizing your bodyfat percentage
+                      </FieldDescription>
+                    </FieldContent>
+                    <RadioGroupItem id="cut" value="cut" />
+                  </Field>
+                </FieldLabel>
+              </RadioGroup>
+            </FieldSet>
+          </FieldGroup>
+        </div>
       </CardContent>
     </>
   );
@@ -298,7 +312,9 @@ export function GettingStarted({
   className,
   ...props
 }): React.ComponentProps<"div"> {
-  const [currentStep, setCurrentStep] = useState<GettingStartedStep>(GETTING_STARTED_STEPS.GENDER);
+  const [currentStep, setCurrentStep] = useState<GettingStartedStep>(
+    GETTING_STARTED_STEPS.GENDER,
+  );
   const progress = (currentStep / GETTING_STARTED_STEPS.END) * 100;
   const [data, setData] = useState<GettingStartedData>({
     gender: null,
@@ -319,10 +335,16 @@ export function GettingStarted({
     }));
   };
   const nextStep = () => {
-    setCurrentStep((prev) => Math.min(prev + 1, GETTING_STARTED_STEPS.END) as GettingStartedStep);
+    setCurrentStep(
+      (prev) =>
+        Math.min(prev + 1, GETTING_STARTED_STEPS.END) as GettingStartedStep,
+    );
   };
   const prevStep = () => {
-    setCurrentStep((prev) => Math.max(prev - 1, GETTING_STARTED_STEPS.GENDER) as GettingStartedStep);
+    setCurrentStep(
+      (prev) =>
+        Math.max(prev - 1, GETTING_STARTED_STEPS.GENDER) as GettingStartedStep,
+    );
   };
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
