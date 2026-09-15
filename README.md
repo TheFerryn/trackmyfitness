@@ -27,7 +27,7 @@ You will also need a running **PostgreSQL server** and a valid [Resend](https://
 
 ### 1. Clone the repository 
 ```bash
-git clone https://github.com/TheFerryn/trackmyfitness.git
+git clone https://github.com/vldeg/trackmyfitness.git
 cd trackmyfitness
 ```
 
